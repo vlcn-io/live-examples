@@ -1,6 +1,7 @@
 import { DB, SQLite3 } from "@vlcn.io/wa-crsqlite";
 import tblrx from "@vlcn.io/rx-tbl";
 import startSync, { uuidStrToBytes } from "@vlcn.io/client-websocket";
+import schema from "../schemas/todo-mvc?raw";
 
 export type Ctx = {
   db: DB;
@@ -14,14 +15,9 @@ export default async function openDB(
   dbid: string
 ): Promise<Ctx> {
   const db = await sqlite.open(dbid);
-  await db.exec(
-    "CREATE TABLE IF NOT EXISTS todo (id primary key, text, completed)"
-  );
-  await db.exec(
-    "CREATE TABLE IF NOT EXISTS presence (id primary key, name, x, y)"
-  );
-  await db.exec("SELECT crsql_as_crr('todo')");
-  await db.exec("SELECT crsql_as_crr('presence')");
+  for (const x of schema.split(";")) {
+    await db.exec(x);
+  }
 
   const rx = tblrx(db);
   const sync = await startSync(`ws://${window.location.hostname}:8080/sync`, {
