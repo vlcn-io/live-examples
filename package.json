@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/uuid": "^8.3.4",
     "@vlcn.io/wa-crsqlite": "link:../crsqlite/js/browser/wa-crsqlite",
+    "@vlcn.io/xplat-api": "link:../crsqlite/js/xplat-api",
     "@vlcn.io/rx-tbl": "link:../crsqlite/js/rx-tbl",
     "@vlcn.io/client-websocket": "link:../crsqlite/js/sync-reference/client-websocket",
     "@vlcn.io/react": "link:../crsqlite/js/react",

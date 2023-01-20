@@ -8,6 +8,7 @@ specifiers:
   '@vlcn.io/react': link:../crsqlite/js/react
   '@vlcn.io/rx-tbl': link:../crsqlite/js/rx-tbl
   '@vlcn.io/wa-crsqlite': link:../crsqlite/js/browser/wa-crsqlite
+  '@vlcn.io/xplat-api': link:../crsqlite/js/xplat-api
   react: ^18.2.0
   react-dom: ^18.2.0
   vite: ^3.2.2
@@ -18,6 +19,7 @@ dependencies:
   '@vlcn.io/react': link:../crsqlite/js/react
   '@vlcn.io/rx-tbl': link:../crsqlite/js/rx-tbl
   '@vlcn.io/wa-crsqlite': link:../crsqlite/js/browser/wa-crsqlite
+  '@vlcn.io/xplat-api': link:../crsqlite/js/xplat-api
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 

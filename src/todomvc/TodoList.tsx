@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from "react";
 import { DB } from "@vlcn.io/wa-crsqlite";
-import { useAsyncQuery } from "@vlcn.io/react";
+import { CtxAsync, useAsyncQuery } from "@vlcn.io/react";
 import { newId } from "./id";
+import { DBAsync } from "@vlcn.io/xplat-api";
 
 type Todo = {
   id: string;
@@ -15,7 +16,7 @@ type TodoList = {
   editing: string | null;
 };
 
-function Header({ db, localdbid }: { db: DB; localdbid: string }) {
+function Header({ db, localdbid }: { db: DBAsync; localdbid: string }) {
   const [newText, setNewText] = React.useState<string>("");
   return (
     <header className="header">
@@ -56,7 +57,7 @@ const TodoView = ({
   editing: boolean;
   startEditing: (t: Todo) => void;
   saveTodo: (todo: Todo, text: string) => void;
-  db: DB;
+  db: DBAsync;
 }) => {
   let body;
 
@@ -120,7 +121,7 @@ function Footer({
   todos: readonly Todo[];
   clearCompleted: () => void;
   todoList: TodoList;
-  db: DB;
+  db: DBAsync;
   setFilter: (f: Filter) => void;
 }) {
   let clearCompletedButton;
@@ -175,12 +176,13 @@ function Footer({
 }
 
 export default function TodoList({
-  db,
+  ctx,
   localdbid,
 }: {
-  db: DB | null;
+  ctx: CtxAsync | null;
   localdbid: string | null;
 }) {
+  const db = ctx?.db;
   const [list, setList] = useState<TodoList>({
     editing: null,
     filter: "all",
@@ -202,7 +204,7 @@ export default function TodoList({
   );
 
   // if db is null, spinner to indicate loading
-  if (db == null) {
+  if (db == null || ctx == null) {
     // do some better fb like newsfeed loading indicators
     return <div>loading...</div>;
   }
@@ -223,7 +225,7 @@ export default function TodoList({
   let toggleAllCheck;
 
   const allTodos: readonly Todo[] = useAsyncQuery<Todo>(
-    db,
+    ctx,
     "SELECT * FROM todo ORDER BY id DESC"
   ).data;
   const completeTodos = allTodos.filter((t) => t.completed);
