@@ -7,8 +7,8 @@
     "tsc": "tsc --noEmit",
     "preview": "vite preview",
     "bld": "vite build",
-    "start": "vlcn-websocket --dbDir=/mnt/dbs./server-dbs --schemaDir=./src/schemas --static=./public",
-    "start:dev": "vlcn-websocket --dbDir=./server-dbs --schemaDir=./src/schemas --static=./public",
+    "start": "vlcn-websocket --dbDir=/mnt/dbs./server-dbs --schemaDir=./src/schemas --static=./dist",
+    "start:dev": "vlcn-websocket --dbDir=./server-dbs --schemaDir=./src/schemas --static=./dist",
     "test:unit": "vitest",
     "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
   },
