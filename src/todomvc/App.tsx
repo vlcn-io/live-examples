@@ -19,6 +19,7 @@ export default function App({ sqlite }: { sqlite: SQLite3 }) {
       name: "New List",
       accessed: Date.now() / 1000,
     });
+    window.location.hash = ctx.dbid;
   };
 
   return (
