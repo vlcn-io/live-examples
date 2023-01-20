@@ -1,28 +1,30 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
+import sqliteWasm, { SQLite3 } from "@vlcn.io/wa-crsqlite";
+import wasmUrl from "@vlcn.io/wa-crsqlite/wa-sqlite-async.wasm?url";
+
 import App from "./App.js";
-import './base.css';
-import { Ctx } from "./ctx.js";
-import './style.css';
+import "./base.css";
+import "./style.css";
 
-function main(): Promise<Ctx> {
-
+async function main(): Promise<void> {
+  const sqlite = await sqliteWasm(() => wasmUrl);
+  startApp(sqlite);
 }
 
-function startApp(ctx: Ctx) {
+function startApp(sqlite: SQLite3) {
   const root = createRoot(document.getElementById("container")!);
-  root.render(<App ctx={ctx} />);
+  root.render(<App sqlite={sqlite} />);
 }
-
 
 /**
  * Need a selection to open file(s) / lists
  * Or connect to remote lists
- * 
+ *
  * Same name for remote and local dbs?
  * Meta DB with remote and local names? Share remote db name with others?
- * 
+ *
  * The other option is partial replication...
- * 
+ *
  * Just keep list of lists in local storage? Given we don't have user logins.
  */
