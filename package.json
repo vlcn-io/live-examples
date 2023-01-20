@@ -13,6 +13,12 @@
     "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
   },
   "dependencies": {
+    "@vlcn.io/server-websocket": "0.6.2-next.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "vite": "^3.2.2",
     "@types/uuid": "^8.3.4",
     "@vlcn.io/wa-crsqlite": "0.7.2-next.0",
     "@vlcn.io/xplat-api": "0.6.1-next.0",
@@ -20,12 +26,6 @@
     "@vlcn.io/client-websocket": "0.6.2-next.0",
     "@vlcn.io/react": "0.7.2-next.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@vlcn.io/server-websocket": "0.6.2-next.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "vite": "^3.2.2"
+    "react-dom": "^18.2.0"
   }
 }
