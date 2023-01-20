@@ -194,6 +194,10 @@ export default function TodoList({ ctx }: { ctx: Ctx | null }) {
   const saveTodo = useCallback(
     (todo: Todo, text: string) => {
       db!.exec(`UPDATE todo SET text = ? WHERE id = ?`, [text, todo.id]);
+      setList((old) => ({
+        ...old,
+        editing: null,
+      }));
     },
     [list]
   );
