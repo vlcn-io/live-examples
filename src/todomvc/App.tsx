@@ -11,11 +11,16 @@ const lastUsed = todoLists.lastAccessed();
 export default function App({ sqlite }: { sqlite: SQLite3 }) {
   const [openOrConnect, setOpenOrConnect] = useState(lastUsed == null);
   const [db, setDb] = useState<DB | null>(null);
+  const [localdbid, setLocaldbid] = useState<string | null>(null);
+
+  const onDbOpened = () => {};
 
   return (
     <div className="todoapp">
-      <TodoList db={db} />
-      {openOrConnect ? <SelectList currentDb={db} sqlite={sqlite} /> : null}
+      <TodoList db={db} localdbid={localdbid} />
+      {openOrConnect ? (
+        <SelectList currentDb={db} sqlite={sqlite} onDbOpened={onDbOpened} />
+      ) : null}
     </div>
   );
 }
