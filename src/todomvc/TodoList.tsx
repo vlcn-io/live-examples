@@ -17,7 +17,7 @@ type TodoList = {
   editing: string | null;
 };
 
-function Header({ db, localdbid }: { db: DBAsync; localdbid: string }) {
+function Header({ db, dbid }: { db: DBAsync; dbid: string }) {
   const [newText, setNewText] = React.useState<string>("");
   return (
     <header className="header">
@@ -34,7 +34,7 @@ function Header({ db, localdbid }: { db: DBAsync; localdbid: string }) {
           if (e.key === "Enter" && target.value.trim() !== "") {
             db.exec("INSERT INTO todo VALUES (?, ?, ?)", [
               // todo: id as sid given sorted and small
-              newId(localdbid),
+              newId(dbid.replaceAll("-", "")),
               target.value,
               0,
             ]);
@@ -251,7 +251,7 @@ export default function TodoList({ ctx }: { ctx: Ctx | null }) {
 
   return (
     <>
-      <Header db={db} localdbid={ctx.dbid} />
+      <Header db={db} dbid={ctx.dbid} />
       <section
         className="main"
         style={allTodos.length > 0 ? {} : { display: "none" }}

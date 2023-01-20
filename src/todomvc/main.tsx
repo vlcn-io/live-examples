@@ -6,6 +6,7 @@ import wasmUrl from "@vlcn.io/wa-crsqlite/wa-sqlite-async.wasm?url";
 import App from "./App.js";
 import "./base.css";
 import "./style.css";
+import todoLists from "./todoLists.js";
 
 async function main(): Promise<void> {
   const sqlite = await sqliteWasm(() => wasmUrl);
@@ -13,6 +14,11 @@ async function main(): Promise<void> {
 }
 
 function startApp(sqlite: SQLite3) {
+  const hash = window.location.hash.substring(1).trim();
+  const lastAccessed = todoLists.lastAccessed();
+  if (hash === "" && lastAccessed) {
+    window.location.hash = lastAccessed.dbid;
+  }
   const root = createRoot(document.getElementById("container")!);
   root.render(<App sqlite={sqlite} />);
 }

@@ -37,9 +37,10 @@ export default function SelectList({
   // TODO:
   // if currentCtx is null and we have a remote db id in the hash, we should kickoff with that
   useEffect(() => {
-    // check the hash
-    // see if we have a dbid in it
-    // openDb with that dbid if so.
+    const hash = window.location.hash.substring(1).trim();
+    if (hash !== "" && hash.match(uuidRegex)) {
+      openDB(hash);
+    }
   }, []);
 
   function onCreateNewList() {

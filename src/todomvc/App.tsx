@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-import { SQLite3, DB } from "@vlcn.io/wa-crsqlite";
+import { SQLite3 } from "@vlcn.io/wa-crsqlite";
 
-import todoLists from "./todoLists.js";
 import SelectList from "./SelectList.js";
 import TodoList from "./TodoList.js";
 import { Ctx } from "./openDB.js";
+import todoLists from "./todoLists.js";
 
 export default function App({ sqlite }: { sqlite: SQLite3 }) {
   const [openOrConnect, setOpenOrConnect] = useState(true);
@@ -13,6 +13,12 @@ export default function App({ sqlite }: { sqlite: SQLite3 }) {
 
   const onDbOpened = (ctx: Ctx) => {
     setCtx(ctx);
+    setOpenOrConnect(false);
+    todoLists.add({
+      dbid: ctx.dbid,
+      name: "New List",
+      accessed: Date.now() / 1000,
+    });
   };
 
   return (
