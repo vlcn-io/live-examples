@@ -7,7 +7,8 @@
     "tsc": "tsc --noEmit",
     "preview": "vite preview",
     "test:unit": "vitest",
-    "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
+    "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true",
+    "websocket": "vlcn-websocket --dbDir=./server-dbs --schemaDir=./schemas"
   },
   "dependencies": {
     "@types/uuid": "^8.3.4",
@@ -17,7 +18,8 @@
     "@vlcn.io/client-websocket": "link:../crsqlite/js/sync-reference/client-websocket",
     "@vlcn.io/react": "link:../crsqlite/js/react",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@vlcn.io/server-websocket": "link:../crsqlite/js/sync-reference/server-websocket"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
