@@ -17,11 +17,12 @@ export default function App({ sqlite }: { sqlite: SQLite3 }) {
   const onDbOpened = () => {};
 
   return (
-    <div className="todoapp">
-      <TodoList ctx={ctx} localdbid={localdbid} />
+    <div>
       {openOrConnect ? (
         <SelectList currentCtx={ctx} sqlite={sqlite} onDbOpened={onDbOpened} />
-      ) : null}
+      ) : (
+        <TodoList ctx={ctx} localdbid={localdbid} />
+      )}
     </div>
   );
 }

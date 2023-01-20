@@ -28,3 +28,5 @@ function startApp(sqlite: SQLite3) {
  *
  * Just keep list of lists in local storage? Given we don't have user logins.
  */
+
+main();

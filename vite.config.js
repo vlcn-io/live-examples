@@ -8,6 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, "index.html"),
+        todomvc: resolve(__dirname, "todomvc.html"),
       },
     },
   },
