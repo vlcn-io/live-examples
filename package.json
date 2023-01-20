@@ -3,12 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "start": "vite",
+    "start:ui": "vite",
     "tsc": "tsc --noEmit",
     "preview": "vite preview",
+    "bld": "vite build",
+    "start": "vlcn-websocket --dbDir=/mnt/dbs./server-dbs --schemaDir=./src/schemas --static=./public",
+    "start:dev": "vlcn-websocket --dbDir=./server-dbs --schemaDir=./src/schemas --static=./public",
     "test:unit": "vitest",
-    "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true",
-    "websocket": "vlcn-websocket --dbDir=./server-dbs --schemaDir=./src/schemas"
+    "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
   },
   "dependencies": {
     "@types/uuid": "^8.3.4",

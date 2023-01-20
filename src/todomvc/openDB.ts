@@ -20,7 +20,7 @@ export default async function openDB(
   }
 
   const rx = tblrx(db);
-  const sync = await startSync(`ws://${window.location.hostname}:8080/sync`, {
+  const sync = await startSync(getConnString(), {
     localDb: db,
     remoteDbId: uuidStrToBytes(dbid),
     create: {
@@ -35,4 +35,12 @@ export default async function openDB(
     sync,
     dbid,
   };
+}
+
+function getConnString() {
+  if (import.meta.env.DEV) {
+    return `ws://${window.location.hostname}:8080/sync`;
+  } else {
+    return `wss://${window.location.hostname}/sync`;
+  }
 }
