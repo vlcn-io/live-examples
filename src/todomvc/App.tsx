@@ -5,23 +5,29 @@ import { SQLite3, DB } from "@vlcn.io/wa-crsqlite";
 import todoLists from "./todoLists.js";
 import SelectList from "./SelectList.js";
 import TodoList from "./TodoList.js";
-import { CtxAsync } from "@vlcn.io/react";
-
-const lastUsed = todoLists.lastAccessed();
+import { Ctx } from "./openDB.js";
 
 export default function App({ sqlite }: { sqlite: SQLite3 }) {
-  const [openOrConnect, setOpenOrConnect] = useState(lastUsed == null);
-  const [ctx, setCtx] = useState<CtxAsync | null>(null);
-  const [localdbid, setLocaldbid] = useState<string | null>(null);
+  const [openOrConnect, setOpenOrConnect] = useState(true);
+  const [ctx, setCtx] = useState<Ctx | null>(null);
 
-  const onDbOpened = () => {};
+  const onDbOpened = (ctx: Ctx) => {
+    setCtx(ctx);
+  };
 
   return (
     <div>
       {openOrConnect ? (
-        <SelectList currentCtx={ctx} sqlite={sqlite} onDbOpened={onDbOpened} />
+        <SelectList
+          currentCtx={ctx}
+          sqlite={sqlite}
+          onCancel={() => {
+            setOpenOrConnect(false);
+          }}
+          onDbOpened={onDbOpened}
+        />
       ) : (
-        <TodoList ctx={ctx} localdbid={localdbid} />
+        <TodoList ctx={ctx} />
       )}
     </div>
   );

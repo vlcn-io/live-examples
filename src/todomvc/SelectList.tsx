@@ -1,11 +1,10 @@
-import { CtxAsync } from "@vlcn.io/react";
-import { DB, SQLite3 } from "@vlcn.io/wa-crsqlite";
-import React, { useState } from "react";
+import { SQLite3 } from "@vlcn.io/wa-crsqlite";
+import React, { useEffect, useState } from "react";
 import initDB, { Ctx } from "./openDB.js";
 
 const ITEM_STYLE = {
   cursor: "pointer",
-} as const;
+};
 
 const errorStyle = {
   padding: "12px",
@@ -30,17 +29,34 @@ export default function SelectList({
   // if current db is not null, shut it down before opening a new one
   const [needConnectInput, setNeedsConnectInput] = useState(false);
   const [disabled, setDisabled] = useState(false);
-  const [itemStyle, setItemStyle] = useState(ITEM_STYLE);
+  const [itemStyle, setItemStyle] = useState<{ [key: string]: any }>(
+    ITEM_STYLE
+  );
   const [error, setError] = useState<null | string>(null);
 
   // TODO:
-  // if currentCtx is null and we have a remote db id in the hash, we should kickoff by trying to connect
-  // to that.
+  // if currentCtx is null and we have a remote db id in the hash, we should kickoff with that
+  useEffect(() => {
+    // check the hash
+    // see if we have a dbid in it
+    // openDb with that dbid if so.
+  }, []);
 
   function onCreateNewList() {
     if (disabled) {
       return;
     }
+    openDB(null);
+  }
+
+  function disable() {
+    setDisabled(true);
+    setItemStyle({ ...ITEM_STYLE, opacity: 0.5, cursor: "default" });
+  }
+
+  function enable() {
+    setDisabled(false);
+    setItemStyle(ITEM_STYLE);
   }
 
   function onConnectDesired() {
@@ -60,13 +76,19 @@ export default function SelectList({
 
   function exHandler(e: Error) {
     setError(e.message);
-    setDisabled(false);
+    enable();
   }
 
   function openDB(maybeDbid: string | null) {
-    setDisabled(true);
+    disable();
     const dbid = maybeDbid || crypto.randomUUID();
-    // shut down sync too
+    if (currentCtx != null) {
+      // TODO: sync should just listen for db to stop and stop when that happens
+      currentCtx.sync.stop();
+      // TODO: rx should listen for db close events too!
+      currentCtx.rx.dispose();
+    }
+
     const promise =
       currentCtx != null
         ? currentCtx.db.close().then(() => openDBPostCleanup(dbid))
@@ -74,7 +96,7 @@ export default function SelectList({
 
     promise
       .then((ctx: Ctx) => {
-        setDisabled(false);
+        enable();
         setError(null);
         onDbOpened(ctx);
       })

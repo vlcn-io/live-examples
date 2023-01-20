@@ -3,6 +3,7 @@ import { DB } from "@vlcn.io/wa-crsqlite";
 import { CtxAsync, useAsyncQuery } from "@vlcn.io/react";
 import { newId } from "./id";
 import { DBAsync } from "@vlcn.io/xplat-api";
+import { Ctx } from "./openDB";
 
 type Todo = {
   id: string;
@@ -175,13 +176,7 @@ function Footer({
   );
 }
 
-export default function TodoList({
-  ctx,
-  localdbid,
-}: {
-  ctx: CtxAsync | null;
-  localdbid: string | null;
-}) {
+export default function TodoList({ ctx }: { ctx: Ctx | null }) {
   const db = ctx?.db;
   const [list, setList] = useState<TodoList>({
     editing: null,
@@ -256,7 +251,7 @@ export default function TodoList({
 
   return (
     <>
-      <Header db={db} localdbid={localdbid!} />
+      <Header db={db} localdbid={ctx.dbid} />
       <section
         className="main"
         style={allTodos.length > 0 ? {} : { display: "none" }}
