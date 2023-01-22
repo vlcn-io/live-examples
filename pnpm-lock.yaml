@@ -8,7 +8,7 @@ specifiers:
   '@vlcn.io/react': 0.7.2
   '@vlcn.io/rx-tbl': 0.6.1
   '@vlcn.io/server-websocket': 0.6.2
-  '@vlcn.io/sync-p2p': 0.6.1
+  '@vlcn.io/sync-p2p': 0.6.2
   '@vlcn.io/wa-crsqlite': 0.7.2
   '@vlcn.io/xplat-api': 0.6.1
   nanoid: ^4.0.0
@@ -27,7 +27,7 @@ devDependencies:
   '@vlcn.io/client-websocket': 0.6.2
   '@vlcn.io/react': 0.7.2_react@18.2.0
   '@vlcn.io/rx-tbl': 0.6.1
-  '@vlcn.io/sync-p2p': 0.6.1
+  '@vlcn.io/sync-p2p': 0.6.2
   '@vlcn.io/wa-crsqlite': 0.7.2
   '@vlcn.io/xplat-api': 0.6.1
   nanoid: 4.0.0
@@ -194,8 +194,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@vlcn.io/sync-p2p/0.6.1:
-    resolution: {integrity: sha512-GaMoqHuSZ3vGlgFmd9O5HYU3rtqLOU4wl/3dm4FtXYam/qkITNLPE759IcHJTGTaq1VMdUpiF7RAD+RBrdl2+w==}
+  /@vlcn.io/sync-p2p/0.6.2:
+    resolution: {integrity: sha512-etJkdFdskXzwBODaKj4b/8jAQGrPU0rTKUIxi5SH+8pkZeleNLryx3fifFmz/5TrkfQC3+afXlSKnN3TkA1i5Q==}
     dependencies:
       '@types/uuid': 8.3.4
       '@vlcn.io/xplat-api': 0.6.1

@@ -22,7 +22,7 @@
     "@vlcn.io/client-websocket": "0.6.2",
     "@vlcn.io/react": "0.7.2",
     "@vlcn.io/rx-tbl": "0.6.1",
-    "@vlcn.io/sync-p2p": "0.6.1",
+    "@vlcn.io/sync-p2p": "0.6.2",
     "@vlcn.io/wa-crsqlite": "0.7.2",
     "@vlcn.io/xplat-api": "0.6.1",
     "nanoid": "^4.0.0",
