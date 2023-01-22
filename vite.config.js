@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         index: resolve(__dirname, "index.html"),
         todomvc: resolve(__dirname, "todomvc.html"),
+        todomvcp2p: resolve(__dirname, "todomvc-p2p.html"),
       },
     },
   },

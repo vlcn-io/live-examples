@@ -4,30 +4,36 @@ specifiers:
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
   '@types/uuid': ^8.3.4
-  '@vlcn.io/client-websocket': 0.6.2-next.0
-  '@vlcn.io/react': 0.7.2-next.0
-  '@vlcn.io/rx-tbl': 0.6.1-next.0
-  '@vlcn.io/server-websocket': 0.6.2-next.0
-  '@vlcn.io/wa-crsqlite': 0.7.2-next.0
-  '@vlcn.io/xplat-api': 0.6.1-next.0
+  '@vlcn.io/client-websocket': 0.6.2
+  '@vlcn.io/react': 0.7.2
+  '@vlcn.io/rx-tbl': 0.6.1
+  '@vlcn.io/server-websocket': 0.6.2
+  '@vlcn.io/sync-p2p': 0.6.1
+  '@vlcn.io/wa-crsqlite': 0.7.2
+  '@vlcn.io/xplat-api': 0.6.1
+  nanoid: ^4.0.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  uuid: ^9.0.0
   vite: ^3.2.2
 
 dependencies:
-  '@vlcn.io/server-websocket': 0.6.2-next.0
+  '@vlcn.io/server-websocket': 0.6.2
 
 devDependencies:
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   '@types/uuid': 8.3.4
-  '@vlcn.io/client-websocket': 0.6.2-next.0
-  '@vlcn.io/react': 0.7.2-next.0_react@18.2.0
-  '@vlcn.io/rx-tbl': 0.6.1-next.0
-  '@vlcn.io/wa-crsqlite': 0.7.2-next.0
-  '@vlcn.io/xplat-api': 0.6.1-next.0
+  '@vlcn.io/client-websocket': 0.6.2
+  '@vlcn.io/react': 0.7.2_react@18.2.0
+  '@vlcn.io/rx-tbl': 0.6.1
+  '@vlcn.io/sync-p2p': 0.6.1
+  '@vlcn.io/wa-crsqlite': 0.7.2
+  '@vlcn.io/xplat-api': 0.6.1
+  nanoid: 4.0.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  uuid: 9.0.0
   vite: 3.2.5
 
 packages:
@@ -62,6 +68,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@swc/helpers/0.3.17:
+    resolution: {integrity: sha512-tb7Iu+oZ+zWJZ3HJqwx8oNwSDIU440hmVMDPhpACWQWnrZHK99Bxs70gT1L2dnr5Hg50ZRWEFkQCAnOVVV0z1Q==}
+    dependencies:
+      tslib: 2.4.1
+    dev: true
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -99,58 +111,58 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: false
 
-  /@vlcn.io/client-core/0.6.2-next.0:
-    resolution: {integrity: sha512-ypjh7LCid+9QYNuFYm7T01UNXsIND8fSGhjDsHKpZjaoO9eUYqlvWTLbSUe1IiBoiWc6kZAUWFnaxjUEdKcxvQ==}
+  /@vlcn.io/client-core/0.6.2:
+    resolution: {integrity: sha512-Up1V7+B/Lo37EL/HBOlkGmMKvDSAiDbfYqwrU2HGM6M2r3miwpmVvIprJXbSZ1KEKQ4UJNSNU1TARL1BTTzJcQ==}
     dependencies:
-      '@vlcn.io/client-server-common': 0.3.2-next.0
-      '@vlcn.io/rx-tbl': 0.6.1-next.0
-      '@vlcn.io/xplat-api': 0.6.1-next.0
+      '@vlcn.io/client-server-common': 0.3.2
+      '@vlcn.io/rx-tbl': 0.6.1
+      '@vlcn.io/xplat-api': 0.6.1
       throttle-debounce: 5.0.0
     dev: true
 
-  /@vlcn.io/client-server-common/0.3.2-next.0:
-    resolution: {integrity: sha512-cPPzzDUxX7SNr1/XADFxPVa0Rly5SP8MUznw337rPYE+2ZDe7XgsEMvkP30os3aELLunKJXDPo+dJqjfou6gkw==}
+  /@vlcn.io/client-server-common/0.3.2:
+    resolution: {integrity: sha512-HJY/jdP0E8bIK0tnON6puMMCOlCpvmGTzEGifc0jcrXf/cvRY4s+ilWoCOjCzQny44NiIEnsJoAo/TobcN186Q==}
     dependencies:
       lib0: 0.2.60
 
-  /@vlcn.io/client-websocket/0.6.2-next.0:
-    resolution: {integrity: sha512-BKUO5UR82jZZq+wcTgTzHXnqae1EnJdHzfGUc26C0viqezHMnttujgxiIINKYNB+97txFGGbZveYor1Lduzlag==}
+  /@vlcn.io/client-websocket/0.6.2:
+    resolution: {integrity: sha512-FAa+1BayIMExHd+rXXIJHOA/cn2pNRHNJ6qdJJxBlusBPMAD+kYZCmI2YnQl6wectk7Y3MIpvpvDNZ4192AeIA==}
     dependencies:
-      '@vlcn.io/client-core': 0.6.2-next.0
-      '@vlcn.io/client-server-common': 0.3.2-next.0
-      '@vlcn.io/rx-tbl': 0.6.1-next.0
-      '@vlcn.io/xplat-api': 0.6.1-next.0
+      '@vlcn.io/client-core': 0.6.2
+      '@vlcn.io/client-server-common': 0.3.2
+      '@vlcn.io/rx-tbl': 0.6.1
+      '@vlcn.io/xplat-api': 0.6.1
     dev: true
 
-  /@vlcn.io/crsqlite/0.7.1-next.0:
-    resolution: {integrity: sha512-nQj2SqSdfZTNgMqduiAWXkS2aqK3H5zH8HyP1aIYoBsyHqESMbUFulaKjAX8zF65vVUiSDbADcCsywuIE7ieWQ==}
+  /@vlcn.io/crsqlite/0.7.1:
+    resolution: {integrity: sha512-rUiFst8rkMVSNnF5+cjt7bBWmbF2NafDasSacEGgQV/gT0kL1DhaaFEf6PXmy/ytKqGmCF6zTTWQy5Tf5WgJLw==}
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.1
     dev: false
 
-  /@vlcn.io/react/0.7.2-next.0_react@18.2.0:
-    resolution: {integrity: sha512-foNZg8HsZqE+k0oLFVJTDkzko4iwjnSlFWB/6kD6+IeH8Yz3Wa8TSAV8xQnz62J/0HDZLKDHotLJ91E9mByg2Q==}
+  /@vlcn.io/react/0.7.2_react@18.2.0:
+    resolution: {integrity: sha512-yzt+ieh+U4cOgPV7AYtkapOq5RLj8W4cRjWaenxNHSkpoWMBso+giao/eDLHJAVT5QFW9WvmUMDF+ID0hEaZIw==}
     peerDependencies:
       react: ^18
     dependencies:
-      '@vlcn.io/rx-tbl': 0.6.1-next.0
-      '@vlcn.io/xplat-api': 0.6.1-next.0
+      '@vlcn.io/rx-tbl': 0.6.1
+      '@vlcn.io/xplat-api': 0.6.1
       react: 18.2.0
     dev: true
 
-  /@vlcn.io/rx-tbl/0.6.1-next.0:
-    resolution: {integrity: sha512-9/TOtblU8Y1Sb3lPqSBIfrX4CW+Zxvc/tHOZTMZ/GgUuhKO+JEEym1/AanMxTuWt/yfibXTJEFGGazja5Cd9jA==}
+  /@vlcn.io/rx-tbl/0.6.1:
+    resolution: {integrity: sha512-HTf3obr/mD9+0vQ+ZVv/2dabTvH+EzvVNfkzaSbWgcH+fBx3OXK8IVLEAMxm8G9zHUYFgzUTf3A4Foaonq0qhA==}
     dependencies:
-      '@vlcn.io/xplat-api': 0.6.1-next.0
+      '@vlcn.io/xplat-api': 0.6.1
     dev: true
 
-  /@vlcn.io/server-core/0.6.2-next.0:
-    resolution: {integrity: sha512-8WlDz4pb7j92Vq8pyWZbDYDivIr1/o81Ddih43BfOhURhnPM2smtwlvb+siAE8DWQVWYKbPnPMRfXLBDWy4yQA==}
+  /@vlcn.io/server-core/0.6.2:
+    resolution: {integrity: sha512-pQwq/5eX84QSS0xqiVKCoOI5h7r2e6vuJQkRc7FGd+eNfnE2etCET4pnc5BN8BqOo6QL5D1XdmYoW6qrDJYwXA==}
     dependencies:
-      '@vlcn.io/client-server-common': 0.3.2-next.0
-      '@vlcn.io/crsqlite': 0.7.1-next.0
+      '@vlcn.io/client-server-common': 0.3.2
+      '@vlcn.io/crsqlite': 0.7.1
       better-sqlite3: 8.0.1
       import-meta-resolve: 2.2.1
       nanoid: 4.0.0
@@ -159,14 +171,14 @@ packages:
       yargs: 17.6.2
     dev: false
 
-  /@vlcn.io/server-websocket/0.6.2-next.0:
-    resolution: {integrity: sha512-6M8QLfgqlCKzQF3AOJ6kDBgdmKmOZyOeZZzljlA00BZCcy1eo9WRJNNiIrLIf0VGLQIAFeeGjDfOQ4wUpBAK9A==}
+  /@vlcn.io/server-websocket/0.6.2:
+    resolution: {integrity: sha512-V5fmCfJzbQ2iNuMxAwavZd1EN2eKgHczUaPOY+Gq7UkR7eUnLoI8J0tlzpkVq9Lp/L+Uh5IGDZIn1g3rbRYlYQ==}
     hasBin: true
     dependencies:
       '@types/yargs': 17.0.20
-      '@vlcn.io/client-server-common': 0.3.2-next.0
-      '@vlcn.io/crsqlite': 0.7.1-next.0
-      '@vlcn.io/server-core': 0.6.2-next.0
+      '@vlcn.io/client-server-common': 0.3.2
+      '@vlcn.io/crsqlite': 0.7.1
+      '@vlcn.io/server-core': 0.6.2
       better-sqlite3: 8.0.1
       cors: 2.8.5
       express: 4.18.2
@@ -182,20 +194,29 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@vlcn.io/wa-crsqlite/0.7.2-next.0:
-    resolution: {integrity: sha512-fylWjliym/EpRvoNtTQuoMAOP2vGl1ug4JKw0D0VwuE/r0f4xBdq7faaeDCPTM10I7fK1KY10RY2oIcF9Sqatw==}
+  /@vlcn.io/sync-p2p/0.6.1:
+    resolution: {integrity: sha512-GaMoqHuSZ3vGlgFmd9O5HYU3rtqLOU4wl/3dm4FtXYam/qkITNLPE759IcHJTGTaq1VMdUpiF7RAD+RBrdl2+w==}
     dependencies:
-      '@vlcn.io/wa-sqlite': 0.14.1-next.0
-      '@vlcn.io/xplat-api': 0.6.1-next.0
+      '@types/uuid': 8.3.4
+      '@vlcn.io/xplat-api': 0.6.1
+      peerjs: 1.4.7
+      uuid: 9.0.0
+    dev: true
+
+  /@vlcn.io/wa-crsqlite/0.7.2:
+    resolution: {integrity: sha512-cnMqWqpJUUY0VHutAUQsBEnDkUGJWq9hi65E2g4ByK55yK7RWuLmCx0O7N4CCOwj1VHpryQdlV2nL3KgYKIJug==}
+    dependencies:
+      '@vlcn.io/wa-sqlite': 0.14.1
+      '@vlcn.io/xplat-api': 0.6.1
       comlink: 4.3.1
     dev: true
 
-  /@vlcn.io/wa-sqlite/0.14.1-next.0:
-    resolution: {integrity: sha512-dDsaZP9JpY7gaI6+UGARNJxu3hGqRDN3RY0Ij0Xjit7PFjTFZKyIjIIlwykXEqUnyiMO+CjvoPmaiNa5yxhxfg==}
+  /@vlcn.io/wa-sqlite/0.14.1:
+    resolution: {integrity: sha512-hdl4QNs+NFvwyDOjNuZXt5SqpxYKg+XKubQS6izkRJFIXUVcDbNaFM0tDcJQ+gdxoTU8oPFY//rwibdpebktNw==}
     dev: true
 
-  /@vlcn.io/xplat-api/0.6.1-next.0:
-    resolution: {integrity: sha512-axp3/edrsYhUEDS72xYNGKFKfGYzYSxPu8AjhCiZ23V1ogBD0GEB8c32AaEJa5novA3i4uVndehjCLIo7wby+A==}
+  /@vlcn.io/xplat-api/0.6.1:
+    resolution: {integrity: sha512-OOZrn7ahRwehaYsIauW8olfRrWZIlIU1Vp7y6gcWNRFhR5BbrDQOQ4A42quskwcbSsIL/zN6KhkG2StiqfsCBg==}
     dependencies:
       comlink: 4.3.1
     dev: true
@@ -670,6 +691,10 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /eventemitter3/4.0.7:
+    resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
+    dev: true
+
   /expand-template/2.0.3:
     resolution: {integrity: sha512-XYfuKMvj4O35f/pOXLObndIRvyQ+/+6AhODh+OKWj9S9498pHHn/IMszH+gt0fBCRWMNfk1ZSp5x3AifmnI2vg==}
     engines: {node: '>=6'}
@@ -957,7 +982,6 @@ packages:
     resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
-    dev: false
 
   /napi-build-utils/1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
@@ -1015,6 +1039,20 @@ packages:
   /path-to-regexp/0.1.7:
     resolution: {integrity: sha512-5DFkuoqlv1uYQKxy8omFBeJPQcdoE07Kv2sferDCrAq1ohOU+MSDswDIbnx3YAM60qIOnYa53wBhXW0EbMonrQ==}
     dev: false
+
+  /peerjs-js-binarypack/1.0.1:
+    resolution: {integrity: sha512-N6aeia3NhdpV7kiGxJV5xQiZZCVEEVjRz2T2C6UZQiBkHWHzUv/oWA4myQLcwBwO8LUoR1KWW5oStvwVesmfCg==}
+    dev: true
+
+  /peerjs/1.4.7:
+    resolution: {integrity: sha512-dWE2HIGvJO0Hm8lYHJiO/5OWl8xYtGcAuU08To1HMIfhh76ULzkCS3NIQO/PZm4noO1RhaGTkQaQ6sbAss6/Tg==}
+    engines: {node: '>= 10'}
+    dependencies:
+      '@swc/helpers': 0.3.17
+      eventemitter3: 4.0.7
+      peerjs-js-binarypack: 1.0.1
+      webrtc-adapter: 7.7.1
+    dev: true
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
@@ -1143,6 +1181,13 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rtcpeerconnection-shim/1.2.15:
+    resolution: {integrity: sha512-C6DxhXt7bssQ1nHb154lqeL0SXz5Dx4RczXZu2Aa/L1NJFnEVDxFwCBo3fqtuljhHIGceg5JKBV4XJ0gW5JKyw==}
+    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
+    dependencies:
+      sdp: 2.12.0
+    dev: true
+
   /safe-buffer/5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
@@ -1160,6 +1205,10 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
+
+  /sdp/2.12.0:
+    resolution: {integrity: sha512-jhXqQAQVM+8Xj5EjJGVweuEzgtGWb3tmEEpl3CLP3cStInSbVHSg0QWOGQzNq8pSID4JkpeV2mPqlMDLrm0/Vw==}
     dev: true
 
   /semver/7.3.8:
@@ -1317,6 +1366,10 @@ packages:
     resolution: {integrity: sha512-XrHUvV5HpdLmIj4uVMxHggLbFSZYIn7HEWsqePZcI50pco+MPqJ50wMGY794X7AOOhxOBAjbkqfAbEe/QMp2Lw==}
     dev: false
 
+  /tslib/2.4.1:
+    resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
+    dev: true
+
   /tunnel-agent/0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
     dependencies:
@@ -1348,7 +1401,6 @@ packages:
   /uuid/9.0.0:
     resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
     hasBin: true
-    dev: false
 
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
@@ -1386,6 +1438,14 @@ packages:
       rollup: 2.79.1
     optionalDependencies:
       fsevents: 2.3.2
+    dev: true
+
+  /webrtc-adapter/7.7.1:
+    resolution: {integrity: sha512-TbrbBmiQBL9n0/5bvDdORc6ZfRY/Z7JnEj+EYOD1ghseZdpJ+nF2yx14k3LgQKc7JZnG7HAcL+zHnY25So9d7A==}
+    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
+    dependencies:
+      rtcpeerconnection-shim: 1.2.15
+      sdp: 2.12.0
     dev: true
 
   /winston-transport/4.5.0:
