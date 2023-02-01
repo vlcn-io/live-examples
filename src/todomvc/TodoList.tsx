@@ -94,7 +94,14 @@ const TodoView = ({
           checked={todo.completed}
           onChange={toggleTodo}
         />
-        <label onDoubleClick={() => startEditing(todo)}>{todo.text}</label>
+        <label
+          onDoubleClick={() => {
+            setText(todo.text);
+            startEditing(todo);
+          }}
+        >
+          {todo.text}
+        </label>
         <button className="destroy" onClick={deleteTodo} />
       </div>
     );

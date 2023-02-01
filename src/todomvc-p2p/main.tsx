@@ -12,7 +12,6 @@ import sqliteWasm from "@vlcn.io/wa-crsqlite";
 import tblrx from "@vlcn.io/rx-tbl";
 import { wdbRtc } from "@vlcn.io/sync-p2p";
 
-// @ts-ignore
 import wasmUrl from "@vlcn.io/wa-crsqlite/wa-sqlite-async.wasm?url";
 
 async function main() {
