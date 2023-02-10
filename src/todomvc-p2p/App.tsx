@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useAsyncQuery as useQuery } from "@vlcn.io/react";
+import { useQuery } from "@vlcn.io/react";
 import { Ctx } from "./ctx.js";
 import { useState, useCallback, memo } from "react";
 import { nanoid } from "nanoid";

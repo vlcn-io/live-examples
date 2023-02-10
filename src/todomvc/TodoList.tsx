@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { DB } from "@vlcn.io/wa-crsqlite";
-import { CtxAsync, useAsyncQuery } from "@vlcn.io/react";
+import { CtxAsync, useQuery } from "@vlcn.io/react";
 import { newId } from "./id";
 import { DBAsync } from "@vlcn.io/xplat-api";
 import { Ctx } from "./openDB";
@@ -230,7 +230,7 @@ export default function TodoList({ ctx }: { ctx: Ctx | null }) {
   };
   let toggleAllCheck;
 
-  const allTodos: readonly Todo[] = useAsyncQuery<Todo>(
+  const allTodos: readonly Todo[] = useQuery<Todo>(
     ctx,
     "SELECT * FROM todo ORDER BY id DESC"
   ).data;
