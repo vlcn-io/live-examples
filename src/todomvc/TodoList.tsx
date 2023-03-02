@@ -1,9 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { DB } from "@vlcn.io/wa-crsqlite";
-import { CtxAsync, useQuery } from "@vlcn.io/react";
+import { CtxAsync as Ctx, useQuery } from "@vlcn.io/react";
 import { newId } from "./id";
 import { DBAsync } from "@vlcn.io/xplat-api";
-import { Ctx } from "./openDB";
 
 type Todo = {
   id: string;
@@ -17,7 +15,7 @@ type TodoList = {
   editing: string | null;
 };
 
-function Header({ db, dbid }: { db: DBAsync; dbid: string }) {
+function Header({ db }: { db: DBAsync }) {
   const [newText, setNewText] = React.useState<string>("");
   return (
     <header className="header">
@@ -34,7 +32,7 @@ function Header({ db, dbid }: { db: DBAsync; dbid: string }) {
           if (e.key === "Enter" && target.value.trim() !== "") {
             db.exec("INSERT INTO todo VALUES (?, ?, ?)", [
               // todo: id as sid given sorted and small
-              newId(dbid.replaceAll("-", "")),
+              newId(db.siteid.replaceAll("-", "")),
               target.value,
               0,
             ]);
@@ -262,7 +260,7 @@ export default function TodoList({ ctx }: { ctx: Ctx | null }) {
 
   return (
     <>
-      <Header db={db} dbid={ctx.dbid} />
+      <Header db={db} />
       <section
         className="main"
         style={allTodos.length > 0 ? {} : { display: "none" }}
