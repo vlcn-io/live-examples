@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createRoot } from "react-dom/client";
-import sqliteWasm, { SQLite3 } from "@vlcn.io/wa-crsqlite";
-import wasmUrl from "@vlcn.io/wa-crsqlite/wa-sqlite-async.wasm?url";
+import sqliteWasm, { SQLite3 } from "@vlcn.io/crsqlite-wasm";
+import wasmUrl from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
 
 import App from "./App.js";
 import "./base.css";

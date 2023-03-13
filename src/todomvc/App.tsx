@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { SQLite3 } from "@vlcn.io/wa-crsqlite";
+import { SQLite3 } from "@vlcn.io/crsqlite-wasm";
 
 import SelectList from "./SelectList.js";
 import TodoList from "./TodoList.js";

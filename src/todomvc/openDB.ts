@@ -1,4 +1,4 @@
-import { DB, SQLite3 } from "@vlcn.io/wa-crsqlite";
+import { DB, SQLite3 } from "@vlcn.io/crsqlite-wasm";
 import tblrx from "@vlcn.io/rx-tbl";
 import startSync, { uuidStrToBytes } from "@vlcn.io/client-websocket";
 import schema from "../schemas/todo-mvc?raw";

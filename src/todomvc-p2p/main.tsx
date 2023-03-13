@@ -8,11 +8,11 @@ import "../todomvc/style.css";
 
 import App from "./App";
 import { Ctx } from "./ctx.js";
-import sqliteWasm from "@vlcn.io/wa-crsqlite";
+import sqliteWasm from "@vlcn.io/crsqlite-wasm";
 import tblrx from "@vlcn.io/rx-tbl";
 import { wdbRtc } from "@vlcn.io/sync-p2p";
 
-import wasmUrl from "@vlcn.io/wa-crsqlite/wa-sqlite-async.wasm?url";
+import wasmUrl from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
 
 async function main() {
   const sqlite = await sqliteWasm(() => wasmUrl);

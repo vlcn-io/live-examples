@@ -1,4 +1,4 @@
-import { SQLite3 } from "@vlcn.io/wa-crsqlite";
+import { SQLite3 } from "@vlcn.io/crsqlite-wasm";
 import React, { useEffect, useState } from "react";
 import initDB, { Ctx } from "./openDB.js";
 
