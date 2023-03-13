@@ -14,18 +14,18 @@
     "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
   },
   "dependencies": {
-    "@vlcn.io/server-websocket": "0.8.0-next.0"
+    "@vlcn.io/server-websocket": "0.8.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/uuid": "^8.3.4",
-    "@vlcn.io/client-websocket": "0.8.0-next.0",
-    "@vlcn.io/react": "0.9.0-next.0",
-    "@vlcn.io/rx-tbl": "0.8.0-next.0",
-    "@vlcn.io/sync-p2p": "0.7.1-next.0",
-    "@vlcn.io/crsqlite-wasm": "0.9.0-next.0",
-    "@vlcn.io/xplat-api": "0.8.0-next.0",
+    "@vlcn.io/client-websocket": "0.8.0",
+    "@vlcn.io/react": "0.9.0",
+    "@vlcn.io/rx-tbl": "0.8.0",
+    "@vlcn.io/sync-p2p": "0.7.1",
+    "@vlcn.io/crsqlite-wasm": "0.9.0",
+    "@vlcn.io/xplat-api": "0.8.0",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
