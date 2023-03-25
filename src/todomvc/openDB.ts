@@ -14,7 +14,7 @@ export default async function openDB(
   sqlite: SQLite3,
   dbid: string
 ): Promise<Ctx> {
-  const db = await sqlite.open(dbid);
+  const db = await sqlite.open(dbid + "-v1");
   for (const x of schema.split(";")) {
     await db.exec(x);
   }
@@ -27,6 +27,7 @@ export default async function openDB(
       schemaName: "todo-mvc",
     },
     rx,
+    worker: false,
   });
 
   return {
