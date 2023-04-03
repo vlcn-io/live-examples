@@ -1,6 +1,6 @@
 import { DB, SQLite3 } from "@vlcn.io/crsqlite-wasm";
 import tblrx from "@vlcn.io/rx-tbl";
-import startSync, { uuidStrToBytes } from "@vlcn.io/client-websocket";
+import startSync from "@vlcn.io/client-websocket";
 import schema from "../schemas/todo-mvc?raw";
 import workerUri from "@vlcn.io/client-websocket/worker.js?url";
 
@@ -23,13 +23,12 @@ export default async function openDB(
   const rx = tblrx(db);
   const sync = await startSync(getConnString(), {
     localDb: db,
-    remoteDbId: uuidStrToBytes(dbid),
+    remoteDbId: dbid,
     create: {
       schemaName: "todo-mvc",
     },
     rx,
     workerUri,
-    // worker: false,
   });
 
   return {
