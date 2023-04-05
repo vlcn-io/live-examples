@@ -28,6 +28,7 @@ export default async function openDB(
       schemaName: "todo-mvc",
     },
     rx,
+    worker: false,
     workerUri,
   });
 
