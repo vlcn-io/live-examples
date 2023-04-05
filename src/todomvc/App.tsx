@@ -34,7 +34,12 @@ export default function App({ sqlite }: { sqlite: SQLite3 }) {
           onDbOpened={onDbOpened}
         />
       ) : (
-        <TodoList ctx={ctx} />
+        <>
+          <span style={{ position: "absolute", top: -20 }}>
+            Share the current URL with others to collaborate on this list.
+          </span>
+          <TodoList ctx={ctx} />
+        </>
       )}
     </div>
   );
