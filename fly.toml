@@ -1,12 +1,13 @@
-# fly.toml file generated for vlcn-live-examples on 2023-04-14T08:11:25-04:00
+# fly.toml file generated for vlcn-live-examples2 on 2023-04-14T08:24:20-04:00
 
-app = "vlcn-live-examples"
+app = "vlcn-live-examples2"
 kill_signal = "SIGINT"
 kill_timeout = 5
 primary_region = "iad"
 processes = []
 
 [env]
+  PORT = "8080"
 
 [experimental]
   auto_rollback = true

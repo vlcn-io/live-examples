@@ -15,7 +15,7 @@ export default async function openDB(
   sqlite: SQLite3,
   dbid: string
 ): Promise<Ctx> {
-  const db = await sqlite.open(dbid + "-v1");
+  const db = await sqlite.open(dbid + "-v2");
   for (const x of schema.split(";")) {
     await db.exec(x);
   }
