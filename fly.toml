@@ -1,15 +1,19 @@
-# fly.toml file generated for vlcn-live-examples on 2023-01-20T17:11:22-05:00
+# fly.toml file generated for vlcn-live-examples on 2023-04-14T08:11:25-04:00
 
 app = "vlcn-live-examples"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "iad"
 processes = []
 
 [env]
-  PORT = "8080"
 
 [experimental]
   auto_rollback = true
+
+[mounts]
+  destination = "/mnt/dbs"
+  source = "dbs"
 
 [[services]]
   http_checks = []
@@ -36,7 +40,3 @@ processes = []
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-
-[mounts]
-  source="dbs"
-  destination="/mnt/dbs"
