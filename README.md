@@ -1,13 +1,13 @@
 # vlcn-live-examples
 
-Example apps. Deployed to https://vlcn-live-examples.fly.dev/
+Example apps. Deployed to https://vlcn-live-examples2.fly.dev
 
 If you're using NextJS, see https://github.com/vlcn-io/nextjs-starter
 
-- TodoMVC: https://vlcn-live-examples.fly.dev/todomvc.html
+- TodoMVC: https://vlcn-live-examples2.fly.dev/todomvc.html
   - After opening a todo list, share the link with others to collaborate on that list.
 - Strut
-- TodoMVC p2p: https://vlcn-live-examples.fly.dev/todomvc-p2p.html
+- TodoMVC p2p: https://vlcn-live-examples2.fly.dev/todomvc-p2p.html
   - Copy a peer id from one peer, connect to it from another peer
 
 
