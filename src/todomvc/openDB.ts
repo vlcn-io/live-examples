@@ -2,7 +2,7 @@ import { DB, SQLite3 } from "@vlcn.io/crsqlite-wasm";
 import tblrx from "@vlcn.io/rx-tbl";
 import startSync from "@vlcn.io/client-websocket";
 import schema from "../schemas/todo-mvc?raw";
-import workerUri from "@vlcn.io/client-websocket/worker.js?url";
+// import workerUri from "@vlcn.io/client-websocket/worker.js?url";
 
 export type Ctx = {
   db: DB;
@@ -29,7 +29,7 @@ export default async function openDB(
     },
     rx,
     worker: false,
-    workerUri,
+    // workerUri,
   });
 
   return {
