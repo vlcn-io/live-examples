@@ -14,7 +14,7 @@
     "deep-clean": "rm -rf ./dist || true && rm tsconfig.tsbuildinfo || true"
   },
   "dependencies": {
-    "@vlcn.io/server-websocket": "0.8.1"
+    "@vlcn.io/server-websocket": "0.8.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

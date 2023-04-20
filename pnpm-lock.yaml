@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@vlcn.io/server-websocket':
-    specifier: 0.8.1
-    version: 0.8.1
+    specifier: 0.8.3
+    version: 0.8.3
 
 devDependencies:
   '@types/react':
@@ -126,8 +126,8 @@ packages:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: false
 
-  /@types/yargs@17.0.23:
-    resolution: {integrity: sha512-yuogunc04OnzGQCrfHx+Kk883Q4X0aSwmYZhKjI21m+SVYzjIbrWl8dOOwSv5hf2Um2pdCOXWo9isteZTNXUZQ==}
+  /@types/yargs@17.0.24:
+    resolution: {integrity: sha512-6i0aC7jV6QzQB8ne1joVZ0eSFIstHsCrobmOtghM11yGlH0j43FKL2UhWdELkyps0zuf7qVTUVCCR+tgSlyLLw==}
     dependencies:
       '@types/yargs-parser': 21.0.0
     dev: false
@@ -140,17 +140,10 @@ packages:
       throttle-debounce: 5.0.0
     dev: true
 
-  /@vlcn.io/client-server-common@0.5.1:
-    resolution: {integrity: sha512-p4qA7Z7HGcjP5ttZ+1AIDo36wtu7umh1J5I2RXkp02QsYGOK+xe7fwnx9R5RkQpi1FSFxZ4scI6wiruLb/1Oyg==}
-    dependencies:
-      lib0: 0.2.73
-    dev: false
-
   /@vlcn.io/client-server-common@0.5.2:
     resolution: {integrity: sha512-0YAxXnKAaLDjzHupdyloRb9oVartdy1QCnQsM6fKhiIqEVindOX7wEEmIz6P7hikY5nwLBJTdQnCxS7G8WXVtg==}
     dependencies:
       lib0: 0.2.73
-    dev: true
 
   /@vlcn.io/client-websocket@0.8.4:
     resolution: {integrity: sha512-u7Hkkn49UtX1PEMaOLiFKzFPgp6lsR1QINOd6KYCdUHjE/3evIizMYEpdU9uo6otKTJ6ZJE80HT+62Kd5xNFTw==}
@@ -170,8 +163,8 @@ packages:
       async-mutex: 0.4.0
     dev: true
 
-  /@vlcn.io/crsqlite@0.9.1:
-    resolution: {integrity: sha512-/XXFJMBwimqSqi8GswB9UapcMxuyp9bBaigVvKmu2foa2TZ+GbnVuyZycmpqgpRR2+r09ZUPg6Q+jw3rDx7SVQ==}
+  /@vlcn.io/crsqlite@0.9.3:
+    resolution: {integrity: sha512-DFomb4B9O3x9N/dWqo6qd16TDkZXnXJjmJmBHHZ/g/9JXOow9fgRtMXDhbWD6RPP+Z4PXB08eWWrWs/zj241ig==}
     requiresBuild: true
     dev: false
 
@@ -191,29 +184,29 @@ packages:
       '@vlcn.io/xplat-api': 0.8.2
     dev: true
 
-  /@vlcn.io/server-core@0.8.1:
-    resolution: {integrity: sha512-Ch7AXosu9NTKqOnLz+f+VNkL3JFANLhbwVePPzAxGSNa2xHVO65YT/oPdIy+IVMNE9uG2QZfRw5TzMQuqapafg==}
+  /@vlcn.io/server-core@0.8.3:
+    resolution: {integrity: sha512-iO0vK4mbECBbh9XmbRdnN4f21DKADVTl1/i6DMw8lXmjUUfp8yMDrnaTRULlNyg8VnyjzV8IyQyIAnr2GXEnzA==}
     dependencies:
-      '@vlcn.io/client-server-common': 0.5.1
-      '@vlcn.io/crsqlite': 0.9.1
-      better-sqlite3: 8.2.0
+      '@vlcn.io/client-server-common': 0.5.2
+      '@vlcn.io/crsqlite': 0.9.3
+      better-sqlite3: 8.3.0
       uuid: 9.0.0
       winston: 3.8.2
       yargs: 17.7.1
     dev: false
 
-  /@vlcn.io/server-websocket@0.8.1:
-    resolution: {integrity: sha512-+o+nO0X2uKidCn3TdvYS5j3ntCHrNZ+AEM3ja8ECiRt3oIj9XyyTG6Zb2BGCG/h01+ZOqTeN8TdyVA8yr1XFSw==}
+  /@vlcn.io/server-websocket@0.8.3:
+    resolution: {integrity: sha512-A0upfGaVquph3r9uE5XdtPlTbMAlOLj3t2w7KNErMAo0KQNVpBQ1Y6a6/IjQ1zfKpKvNCJJojeiEcvjyUF8h9A==}
     hasBin: true
     dependencies:
-      '@types/yargs': 17.0.23
-      '@vlcn.io/client-server-common': 0.5.1
-      '@vlcn.io/crsqlite': 0.9.1
-      '@vlcn.io/server-core': 0.8.1
-      better-sqlite3: 8.2.0
+      '@types/yargs': 17.0.24
+      '@vlcn.io/client-server-common': 0.5.2
+      '@vlcn.io/crsqlite': 0.9.3
+      '@vlcn.io/server-core': 0.8.3
+      better-sqlite3: 8.3.0
       cors: 2.8.5
       express: 4.18.2
-      nanoid: 4.0.1
+      nanoid: 4.0.2
       uuid: 9.0.0
       winston: 3.8.2
       ws: 8.13.0
@@ -281,8 +274,8 @@ packages:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
     dev: false
 
-  /better-sqlite3@8.2.0:
-    resolution: {integrity: sha512-8eTzxGk9535SB3oSNu0tQ6I4ZffjVCBUjKHN9QeeIFtphBX0sEd0NxAuglBNR9TO5ThnxBB7GqzfcYo9kjadJQ==}
+  /better-sqlite3@8.3.0:
+    resolution: {integrity: sha512-JTmvBZL/JLTc+3Msbvq6gK6elbU9/wVMqiudplHrVJpr7sVMR9KJrNhZAbW+RhXKlpMcuEhYkdcHa3TXKNXQ1w==}
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -1008,6 +1001,13 @@ packages:
     resolution: {integrity: sha512-udKGtCCUafD3nQtJg9wBhRP3KMbPglUsgV5JVsXhvyBs/oefqb4sqMEhKBBgqZncYowu58p1prsZQBYvAj/Gww==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
+    dev: true
+
+  /nanoid@4.0.2:
+    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
