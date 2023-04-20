@@ -17,7 +17,7 @@ import wasmUrl from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
 async function main() {
   const sqlite = await sqliteWasm(() => wasmUrl);
 
-  const db = await sqlite.open("p2p-wdb-todomvc-9");
+  const db = await sqlite.open("p2p-wdb-todomvc-10");
   (window as any).db = db;
 
   await db.exec(
@@ -30,13 +30,14 @@ async function main() {
   const rx = await tblrx(db);
   const rtc = await wdbRtc(
     db,
-    window.location.hostname === "localhost"
-      ? {
-          host: "localhost",
-          port: 9000,
-          path: "/examples",
-        }
-      : undefined
+    // window.location.hostname === "localhost"
+    //   ? {
+    //       host: "localhost",
+    //       port: 9000,
+    //       path: "/examples",
+    //     }
+    // : undefined
+    undefined
   );
 
   window.onbeforeunload = () => {
