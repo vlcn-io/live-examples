@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useQuery } from "@vlcn.io/react";
 import { Ctx } from "./ctx.js";
-import { useState, useCallback, memo } from "react";
+import { useState, useCallback } from "react";
 import { nanoid } from "nanoid";
 import Peers from "./Peers";
 
@@ -121,14 +121,12 @@ function Footer({
   todos,
   clearCompleted,
   todoList,
-  ctx,
   setFilter,
 }: {
   remaining: number;
   todos: readonly Todo[];
   clearCompleted: () => void;
   todoList: TodoList;
-  ctx: Ctx;
   setFilter: (f: Filter) => void;
 }) {
   let clearCompletedButton;
@@ -280,7 +278,6 @@ export default function App({ ctx }: { ctx: Ctx }) {
           ))}
         </ul>
         <Footer
-          ctx={ctx}
           remaining={remaining}
           todos={allTodos}
           todoList={list}

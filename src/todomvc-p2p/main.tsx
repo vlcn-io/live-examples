@@ -1,4 +1,3 @@
-import * as React from "react";
 import { createRoot } from "react-dom/client";
 // @ts-ignore
 import { stringify as uuidStringify } from "uuid";

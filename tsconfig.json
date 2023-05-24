@@ -1,20 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/", // path to output directory
-    "sourceMap": true, // allow sourcemap support
-    "strictNullChecks": true, // enable strict null checks as a best practice
-    "module": "esnext", // specify module code generation
-    "target": "esnext", // specify ECMAScript target version
-    "moduleResolution": "node",
-    "rootDir": "./",
-    "allowJs": true,
-    "jsx": "react",
-    "strict": true,
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
-    "resolveJsonModule": true
+    "allowJs": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "files": ["./src/global.d.ts"],
-  "include": ["./src/"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -13,7 +13,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install
+RUN npm install -g pnpm
+RUN pnpm install
+RUN pnpm run build
 
 
 FROM debian:bullseye-slim
@@ -27,4 +29,4 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV PATH /usr/local/node/bin:$PATH
 
-CMD [ "npm", "run", "start" ]
+CMD [ "pnpm", "run", "start" ]

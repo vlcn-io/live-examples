@@ -1,4 +1,4 @@
-# fly.toml file generated for vlcn-live-examples2 on 2023-04-14T08:24:20-04:00
+# fly.toml file generated for vite-starter on 2023-05-18T15:37:10-04:00
 
 app = "vlcn-live-examples"
 kill_signal = "SIGINT"
@@ -11,9 +11,9 @@ processes = []
 
 [experimental]
   auto_rollback = true
-
+  
 [mounts]
-  destination = "/mnt/dbs"
+  destination = "/app/dbs"
   source = "dbs"
 
 [[services]]
@@ -23,8 +23,8 @@ processes = []
   protocol = "tcp"
   script_checks = []
   [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
+    hard_limit = 250
+    soft_limit = 200
     type = "connections"
 
   [[services.ports]]

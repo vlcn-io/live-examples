@@ -1,38 +1,69 @@
-import * as React from "react";
-import { createRoot } from "react-dom/client";
-import sqliteWasm, { SQLite3 } from "@vlcn.io/crsqlite-wasm";
-import wasmUrl from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
-
-import App from "./App.js";
+import ReactDOM from "react-dom/client";
 import "./base.css";
 import "./style.css";
-import todoLists from "./todoLists.js";
 
-async function main(): Promise<void> {
-  const sqlite = await sqliteWasm(() => wasmUrl);
-  startApp(sqlite);
-}
-
-function startApp(sqlite: SQLite3) {
-  const hash = window.location.hash.substring(1).trim();
-  const lastAccessed = todoLists.lastAccessed();
-  if (hash === "" && lastAccessed) {
-    window.location.hash = lastAccessed.dbid;
-  }
-  const root = createRoot(document.getElementById("container")!);
-  root.render(<App sqlite={sqlite} />);
-}
+import { newDbid } from "@vlcn.io/direct-connect-browser";
+import schema from "../schemas/main.mjs";
+import { endpoints } from "./SyncEndpoints.ts";
+import { DBProvider } from "@vlcn.io/react";
+import TodoList from "./App.tsx";
 
 /**
- * Need a selection to open file(s) / lists
- * Or connect to remote lists
+ * Returns the ID of a remote database to sync with or creates a new one
+ * if none exists.
  *
- * Same name for remote and local dbs?
- * Meta DB with remote and local names? Share remote db name with others?
+ * This ID should be a 16 byte hex string.
  *
- * The other option is partial replication...
+ * Ways you can get a remote db:
+ * - Harcode the id in your app (not recommended)
+ * - Return a DBID for the user after they log in
+ * - Get it through link sharing, qr code, etc.
  *
- * Just keep list of lists in local storage? Given we don't have user logins.
+ * Here we look at the URL for a DBID. If one does not exist we check localStorage if the user
+ * ever opened one. If not, we randomly generate one and return it.
+ *
+ * Randomly generating a DBID will cause new databases to be created on both the client
+ * and server.
  */
+function getRemoteDbid(hash: HashBag): string {
+  return hash.dbid || localStorage.getItem("todoRemoteDbid") || newDbid();
+}
 
-main();
+const hash = parseHash();
+const dbid = getRemoteDbid(hash);
+if (dbid != hash.dbid) {
+  hash.dbid = dbid;
+  window.location.hash = writeHash(hash);
+}
+localStorage.setItem("todoRemoteDbid", dbid);
+
+// Launch our app.
+ReactDOM.createRoot(document.getElementById("container") as HTMLElement).render(
+  <DBProvider dbid={dbid} schema={schema} endpoints={endpoints}>
+    <TodoList dbid={dbid} />
+  </DBProvider>
+);
+
+type HashBag = { [key: string]: string };
+function parseHash(): HashBag {
+  const hash = window.location.hash;
+  const ret: { [key: string]: string } = {};
+  if (hash.length > 1) {
+    const substr = hash.substring(1);
+    const parts = substr.split(",");
+    for (const part of parts) {
+      const [key, value] = part.split("=");
+      ret[key] = value;
+    }
+  }
+
+  return ret;
+}
+
+function writeHash(hash: HashBag) {
+  const parts = [];
+  for (const key in hash) {
+    parts.push(`${key}=${hash[key]}`);
+  }
+  return parts.join(",");
+}
