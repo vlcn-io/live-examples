@@ -23,7 +23,7 @@ async function main() {
     "CREATE TABLE IF NOT EXISTS todo (id primary key, text, completed)"
   );
   await db.exec("SELECT crsql_as_crr('todo')");
-  const r = await db.execA("SELECT crsql_siteid()");
+  const r = await db.execA("SELECT crsql_site_id()");
   const siteid = uuidStringify(r[0][0]);
 
   const rx = await tblrx(db);

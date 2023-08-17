@@ -10,14 +10,14 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
-    "@vlcn.io/crsqlite-wasm": "0.14.0-next.0",
-    "@vlcn.io/direct-connect-browser": "0.4.0-next.1",
-    "@vlcn.io/direct-connect-common": "0.5.0-next.1",
-    "@vlcn.io/direct-connect-nodejs": "0.5.0-next.7",
-    "@vlcn.io/react": "2.4.0-next.1",
-    "@vlcn.io/rx-tbl": "0.13.0-next.0",
-    "@vlcn.io/sync-p2p": "0.12.0-next.0",
-    "@vlcn.io/xplat-api": "0.13.0-next.0",
+    "@vlcn.io/crsqlite-wasm": "0.15.0-next.4",
+    "@vlcn.io/direct-connect-browser": "0.5.0-next.4",
+    "@vlcn.io/direct-connect-common": "0.6.0-next.2",
+    "@vlcn.io/direct-connect-nodejs": "0.6.0-next.2",
+    "@vlcn.io/react": "3.0.0-next.6",
+    "@vlcn.io/rx-tbl": "0.14.0-next.2",
+    "@vlcn.io/sync-p2p": "0.13.0-next.2",
+    "@vlcn.io/xplat-api": "0.14.0-next.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nanoid": "^4.0.2",
@@ -26,16 +26,16 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.2.3",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "@vitejs/plugin-react": "^4.0.0",
-    "eslint": "^8.38.0",
+    "@types/node": "^20.5.0",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "eslint": "^8.47.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.3.4",
-    "typescript": "^5.0.2",
-    "vite": "^4.3.2"
+    "eslint-plugin-react-refresh": "^0.3.5",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9"
   }
 }
