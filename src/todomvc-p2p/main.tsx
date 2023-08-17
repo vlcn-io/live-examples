@@ -16,7 +16,7 @@ import wasmUrl from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
 async function main() {
   const sqlite = await sqliteWasm(() => wasmUrl);
 
-  const db = await sqlite.open("p2p-wdb-todomvc-10");
+  const db = await sqlite.open("p2p-wdb-todomvc-11");
   (window as any).db = db;
 
   await db.exec(
