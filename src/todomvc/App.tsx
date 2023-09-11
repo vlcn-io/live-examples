@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from "react";
-import { useDB, useQuery } from "@vlcn.io/react";
+import { useDB, useQuery, useSync } from "@vlcn.io/react";
 import { newId } from "./id";
 import { DBAsync } from "@vlcn.io/xplat-api";
+import SyncWorker from "./sync-worker.js?worker";
 
 type Todo = {
   id: string;
@@ -51,7 +52,7 @@ const TodoView = ({
   saveTodo,
   db,
 }: {
-  key?: any;
+  key?: string;
   todo: Todo;
   editing: boolean;
   startEditing: (t: Todo) => void;
@@ -179,38 +180,42 @@ function Footer({
   );
 }
 
+const worker = new SyncWorker();
+function getEndpoint() {
+  let proto = "ws:";
+  const host = window.location.host;
+  if (window.location.protocol === "https:") {
+    proto = "wss:";
+  }
+
+  return `${proto}//${host}/sync`;
+}
 export default function TodoList({ dbid }: { dbid: string }) {
   const ctx = useDB(dbid);
   const db = ctx.db;
+  useSync({
+    dbname: dbid,
+    endpoint: getEndpoint(),
+    room: dbid,
+    worker,
+  });
   const [list, setList] = useState<TodoList>({
     editing: null,
     filter: "all",
   });
-  const startEditing = useCallback(
-    (todo: Todo) => {
-      setList((old) => ({
-        ...old,
-        editing: todo.id,
-      }));
-    },
-    [list]
-  );
-  const saveTodo = useCallback(
-    (todo: Todo, text: string) => {
-      db!.exec(`UPDATE todo SET text = ? WHERE id = ?`, [text, todo.id]);
-      setList((old) => ({
-        ...old,
-        editing: null,
-      }));
-    },
-    [list]
-  );
-
-  // if db is null, spinner to indicate loading
-  if (db == null || ctx == null) {
-    // do some better fb like newsfeed loading indicators
-    return <div>loading...</div>;
-  }
+  const startEditing = useCallback((todo: Todo) => {
+    setList((old) => ({
+      ...old,
+      editing: todo.id,
+    }));
+  }, []);
+  const saveTodo = useCallback((todo: Todo, text: string) => {
+    db.exec(`UPDATE todo SET text = ? WHERE id = ?`, [text, todo.id]);
+    setList((old) => ({
+      ...old,
+      editing: null,
+    }));
+  }, []);
 
   const clearCompleted = () => {
     db.exec(`DELETE FROM todo WHERE completed = true`);
@@ -235,7 +240,7 @@ export default function TodoList({ dbid }: { dbid: string }) {
   const activeTodos = allTodos.filter((t) => !t.completed);
 
   const remaining = activeTodos.length;
-  let todos =
+  const todos =
     list.filter === "active"
       ? activeTodos
       : list.filter === "completed"

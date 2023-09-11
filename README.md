@@ -1,5 +1,7 @@
 # vlcn-live-examples
 
+# Please see the [vite-starter](https://github.com/vlcn-io/vite-starter) as that is kept up to date with the latest version of cr-sqlite
+
 Example apps. Deployed to https://vlcn-live-examples.fly.dev
 
 - TodoMVC: https://vlcn-live-examples.fly.dev/todomvc.html
