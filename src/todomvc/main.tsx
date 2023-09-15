@@ -2,9 +2,7 @@ import ReactDOM from "react-dom/client";
 import "./base.css";
 import "./style.css";
 
-import { newDbid } from "@vlcn.io/direct-connect-browser";
-import schema from "../schemas/main.mjs";
-import { endpoints } from "./SyncEndpoints.ts";
+import schemaContent from "../schemas/main.sql?raw";
 import { DBProvider } from "@vlcn.io/react";
 import TodoList from "./App.tsx";
 
@@ -26,7 +24,7 @@ import TodoList from "./App.tsx";
  * and server.
  */
 function getRemoteDbid(hash: HashBag): string {
-  return hash.dbid || localStorage.getItem("todoRemoteDbid") || newDbid();
+  return hash.dbid || localStorage.getItem("todoRoom") || newDbid();
 }
 
 const hash = parseHash();
@@ -35,13 +33,18 @@ if (dbid != hash.dbid) {
   hash.dbid = dbid;
   window.location.hash = writeHash(hash);
 }
-localStorage.setItem("todoRemoteDbid", dbid);
+localStorage.setItem("todoRoom", dbid);
 
 // Launch our app.
 ReactDOM.createRoot(document.getElementById("container") as HTMLElement).render(
-  <DBProvider dbid={dbid} schema={schema} endpoints={endpoints}>
-    <TodoList dbid={dbid} />
-  </DBProvider>
+  <DBProvider
+    dbname={dbid}
+    schema={{
+      name: "main.sql",
+      content: schemaContent,
+    }}
+    Render={() => <TodoList dbid={dbid} />}
+  ></DBProvider>
 );
 
 type HashBag = { [key: string]: string };
@@ -66,4 +69,8 @@ function writeHash(hash: HashBag) {
     parts.push(`${key}=${hash[key]}`);
   }
   return parts.join(",");
+}
+
+function newDbid() {
+  return crypto.randomUUID().replaceAll("-", "");
 }

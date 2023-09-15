@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    exclude: ["@vite/client", "@vite/env"],
+    exclude: ["@vite/client", "@vite/env", "@vlcn.io/crsqlite-wasm"],
     esbuildOptions: {
       target: "esnext",
     },
