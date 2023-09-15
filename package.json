@@ -4,27 +4,27 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node ./server.js",
+    "dev:server": "node ./server.js",
+    "dev:ui": "vite",
     "start": "NODE_ENV=production node ./server.js",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
-    "@vlcn.io/crsqlite-wasm": "link:../js/packages/crsqlite-wasm",
-    "@vlcn.io/react": "link:../js/packages/react",
-    "@vlcn.io/rx-tbl": "link:../js/packages/rx-tbl",
-    "@vlcn.io/sync-p2p": "link:../js/packages/p2p",
-    "@vlcn.io/ws-browserdb": "link:../js/packages/ws-browserdb",
-    "@vlcn.io/ws-client": "link:../js/packages/ws-client",
-    "@vlcn.io/ws-server": "link:../js/packages/ws-server",
-    "@vlcn.io/xplat-api": "link:../js/packages/xplat-api",
+    "@vlcn.io/crsqlite-wasm": "0.15.2",
+    "@vlcn.io/react": "3.0.3",
+    "@vlcn.io/rx-tbl": "0.14.1",
+    "@vlcn.io/sync-p2p": "0.13.1",
+    "@vlcn.io/ws-browserdb": "0.1.2",
+    "@vlcn.io/ws-client": "0.1.2",
+    "@vlcn.io/ws-server": "0.1.2",
+    "@vlcn.io/xplat-api": "0.14.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "nanoid": "^4.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "uuid": "^9.0.0",
-    "vite-express": "^0.10.0"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.5.0",

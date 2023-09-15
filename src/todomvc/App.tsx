@@ -183,19 +183,24 @@ function Footer({
 const worker = new SyncWorker();
 function getEndpoint() {
   let proto = "ws:";
-  const host = window.location.host;
+  const hostname = window.location.hostname;
   if (window.location.protocol === "https:") {
     proto = "wss:";
   }
+  let port = "";
+  if (hostname == "localhost") {
+    port = ":8080";
+  }
 
-  return `${proto}//${host}/sync`;
+  return `${proto}//${hostname}${port}/sync`;
 }
+const syncEndpoint = getEndpoint();
 export default function TodoList({ dbid }: { dbid: string }) {
   const ctx = useDB(dbid);
   const db = ctx.db;
   useSync({
     dbname: dbid,
-    endpoint: getEndpoint(),
+    endpoint: syncEndpoint,
     room: dbid,
     worker,
   });

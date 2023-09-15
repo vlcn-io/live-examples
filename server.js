@@ -1,5 +1,4 @@
 import express from "express";
-import ViteExpress from "vite-express";
 import { attachWebsocketServer } from "@vlcn.io/ws-server";
 import * as http from "http";
 
@@ -16,8 +15,10 @@ const wsConfig = {
 
 attachWebsocketServer(server, wsConfig);
 
+if (process.env.NODE_ENV === "production") {
+  express.static("dist");
+}
+
 server.listen(PORT, () =>
   console.log("info", `listening on http://localhost:${PORT}!`)
 );
-
-ViteExpress.bind(app, server);

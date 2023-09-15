@@ -24,7 +24,7 @@ import TodoList from "./App.tsx";
  * and server.
  */
 function getRemoteDbid(hash: HashBag): string {
-  return hash.dbid || localStorage.getItem("todoRemoteDbid") || newDbid();
+  return hash.dbid || localStorage.getItem("todoRoom") || newDbid();
 }
 
 const hash = parseHash();
@@ -33,7 +33,7 @@ if (dbid != hash.dbid) {
   hash.dbid = dbid;
   window.location.hash = writeHash(hash);
 }
-localStorage.setItem("todoRemoteDbid", dbid);
+localStorage.setItem("todoRoom", dbid);
 
 // Launch our app.
 ReactDOM.createRoot(document.getElementById("container") as HTMLElement).render(
