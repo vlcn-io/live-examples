@@ -4,6 +4,8 @@
 - https://github.com/vlcn-io/vite-starter
 - https://github.com/vlcn-io/example-rest
 
+----
+
 Example apps. Deployed to https://vlcn-live-examples.fly.dev
 
 - TodoMVC: https://vlcn-live-examples.fly.dev/todomvc.html
