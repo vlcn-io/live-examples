@@ -20,7 +20,7 @@ async function main() {
   (window as any).db = db;
 
   await db.exec(
-    "CREATE TABLE IF NOT EXISTS todo (id primary key, text, completed)"
+    "CREATE TABLE IF NOT EXISTS todo (id primary key NOT NULL, text, completed)"
   );
   await db.exec("SELECT crsql_as_crr('todo')");
   const r = await db.execA("SELECT crsql_site_id()");
